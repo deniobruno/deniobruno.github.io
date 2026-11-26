@@ -102,6 +102,9 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-height) + 20px);
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
@@ -111,6 +114,9 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
   transition: background-color var(--transition-base), color var(--transition-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -553,14 +559,14 @@ pre,
 
 .globe-container {
   width: 100%;
-  max-width: 400px;
-  height: 380px;
+  max-width: 380px;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   cursor: grab;
-  margin: 0.5rem 0;
+  margin: 0.5rem auto;
 }
 
 .globe-card--grabbing .globe-container {
@@ -568,10 +574,11 @@ pre,
 }
 
 #globe-canvas {
-  width: 380px;
-  height: 380px;
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   max-height: 100%;
+  aspect-ratio: 1 / 1;
   display: block;
   user-select: none;
   -webkit-user-select: none;
@@ -1991,13 +1998,15 @@ section {
 }
 
 /* --------------------------------------------------------------------------
-   10. RESPONSIVIDADE
+   14. RESPONSIVIDADE COMPLETA (MOBILE-FIRST POLISHING)
    -------------------------------------------------------------------------- */
-@media (max-width: 860px) {
+
+/* Telas Médias / Tablets em Paisagem (max-width: 992px) */
+@media (max-width: 992px) {
   .hero__wrapper {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 2.5rem;
+    gap: 3rem;
   }
 
   .hero__content {
@@ -2015,32 +2024,41 @@ section {
     justify-content: center;
   }
 
-  .globe-card {
-    max-width: 360px;
-  }
-
-  .globe-container {
-    height: 320px;
-  }
-
-  #globe-canvas {
-    width: 320px;
-    height: 320px;
-  }
-}
-
-@media (max-width: 860px) {
   .sobre__conteudo {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
   .contato__conteudo {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+
+  .globe-card {
+    max-width: 360px;
+  }
 }
 
+/* Tablets e Dispositivos Móveis (max-width: 768px) */
 @media (max-width: 768px) {
+  section {
+    padding: 4.5rem 0;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 3rem);
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.8rem;
+  }
+
+  /* Header e Menu Hambúrguer */
+  #header nav {
+    padding: 0 1.2rem;
+  }
+
   .nav__toggle {
     display: flex;
   }
@@ -2049,7 +2067,7 @@ section {
     position: fixed;
     top: var(--nav-height);
     right: -100%;
-    width: 75%;
+    width: 80%;
     max-width: 320px;
     height: calc(100vh - var(--nav-height));
     background-color: var(--bg-secondary);
@@ -2066,15 +2084,101 @@ section {
     right: 0;
   }
 
+  /* Hero Section */
+  .hero {
+    min-height: auto;
+    padding: calc(var(--nav-height) + 1.5rem) 0 3.5rem;
+  }
+
+  .hero__name {
+    font-size: 2.4rem;
+  }
+
+  .hero__typing {
+    font-size: 1.15rem;
+    justify-content: center;
+  }
+
   .hero__cta {
     flex-direction: column;
     width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
   }
 
   .hero__cta .btn {
     width: 100%;
   }
 
+  .globe-card {
+    max-width: 330px;
+  }
+
+  .globe-container {
+    max-width: 270px;
+  }
+
+  /* Seção Sobre */
+  .sobre__texto {
+    padding: 1.6rem 1.4rem;
+  }
+
+  .terminal-bio__code {
+    font-size: 0.78rem;
+    padding: 1rem;
+  }
+
+  .contador {
+    padding: 1.4rem;
+  }
+
+  /* Habilidades */
+  .habilidades__grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .habilidade__card {
+    padding: 1.4rem 1.3rem;
+  }
+
+  /* Projetos */
+  .projetos__filtros {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .filtros__categorias {
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .filtros__busca {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .projetos__grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .projeto__corpo {
+    padding: 1.4rem 1.3rem;
+  }
+
+  .modal {
+    padding: 1rem;
+  }
+
+  .modal__body {
+    padding: 1.6rem 1.3rem;
+  }
+
+  /* Experiência / Timeline */
   .timeline {
     padding-left: 2.2rem;
   }
@@ -2096,11 +2200,282 @@ section {
   }
 
   .timeline__conteudo {
-    padding: 1.6rem 1.8rem;
+    padding: 1.5rem 1.4rem;
+  }
+
+  .timeline__item:hover .timeline__conteudo {
+    transform: none; /* Desativa deslocamento lateral em telas de toque */
   }
 
   .timeline__titulo {
     font-size: 1.2rem;
+  }
+
+  /* Contato */
+  .contato__cards {
+    gap: 1rem;
+  }
+
+  .contato__card {
+    padding: 1.3rem 1.2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .contato__card-body {
+    flex: 1 1 180px;
+    min-width: 0;
+  }
+
+  .contato__card-valor {
+    font-size: 0.88rem;
+    word-break: break-all;
+  }
+
+  .contato__mail-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.2rem;
+  }
+
+  .contato__form {
+    padding: 1.6rem 1.3rem;
+  }
+
+  .form__acoes {
+    flex-direction: column;
+  }
+
+  .form__acoes .btn {
+    width: 100%;
+  }
+}
+
+/* Celulares e Dispositivos Compactos (max-width: 480px) */
+@media (max-width: 480px) {
+  main {
+    padding: 0 1rem;
+  }
+
+  section {
+    padding: 3.5rem 0;
+  }
+
+  #header nav {
+    padding: 0 0.9rem;
+  }
+
+  .nav__logo {
+    font-size: 1.15rem;
+  }
+
+  .nav__actions {
+    gap: 0.35rem;
+  }
+
+  .nav__action-btn {
+    padding: 0.45rem;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero {
+    padding: calc(var(--nav-height) + 1rem) 0 2.8rem;
+  }
+
+  .hero__name {
+    font-size: 2rem;
+  }
+
+  .hero__typing {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.3rem;
+    font-size: 0.88rem;
+  }
+
+  .globe-card {
+    max-width: 280px;
+    padding: 0.9rem;
+  }
+
+  .globe-container {
+    max-width: 220px;
+    margin: 0.3rem auto;
+  }
+
+  #globe-canvas {
+    width: 220px;
+    height: 220px;
+  }
+
+  .globe-card__hint {
+    font-size: 0.72rem;
+  }
+
+  .sobre__texto {
+    padding: 1.3rem 1rem;
+  }
+
+  .terminal-bio__code {
+    font-size: 0.72rem;
+    padding: 0.8rem;
+  }
+
+  .contador {
+    padding: 1.1rem 1rem;
+  }
+
+  .contador__numero {
+    font-size: 2rem;
+  }
+
+  .contador__rotulo {
+    font-size: 0.78rem;
+  }
+
+  .hab-filtro__btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .habilidade__card {
+    padding: 1.2rem 1rem;
+  }
+
+  .habilidade__nome {
+    font-size: 1.05rem;
+  }
+
+  .habilidade__percentual {
+    font-size: 1.05rem;
+  }
+
+  .filtro__btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.78rem;
+  }
+
+  .projeto__corpo {
+    padding: 1.2rem 1rem;
+  }
+
+  .projeto__titulo {
+    font-size: 1.15rem;
+  }
+
+  .modal {
+    padding: 0.5rem;
+  }
+
+  .modal__body {
+    padding: 1.3rem 0.9rem;
+    gap: 1rem;
+  }
+
+  .modal__titulo {
+    font-size: 1.2rem;
+  }
+
+  .timeline {
+    padding-left: 1.6rem;
+  }
+
+  .timeline::before {
+    left: 5px;
+  }
+
+  .timeline__marcador {
+    left: -1.6rem;
+    width: 14px;
+    height: 14px;
+    top: 1.2rem;
+  }
+
+  .timeline__marcador::after {
+    width: 5px;
+    height: 5px;
+  }
+
+  .timeline__conteudo {
+    padding: 1.2rem 0.95rem;
+  }
+
+  .timeline__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .timeline__titulo {
+    font-size: 1.08rem;
+  }
+
+  .timeline__local {
+    font-size: 0.85rem;
+  }
+
+  .timeline__descricao {
+    font-size: 0.88rem;
+  }
+
+  .contato__card {
+    padding: 1rem 0.9rem;
+    gap: 0.8rem;
+  }
+
+  .contato__card-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contato__card-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contato__card-body {
+    flex: 1 1 100%;
+  }
+
+  .contato__card-valor {
+    font-size: 0.82rem;
+  }
+
+  .contato__mail-actions {
+    width: 100%;
+  }
+
+  .contato__mail-actions .contato__card-action,
+  .contato__mail-actions .contato__copiar-btn {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contato__card-action.btn-wpp {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contato__form {
+    padding: 1.2rem 0.9rem;
+  }
+
+  #footer {
+    padding: 2.2rem 1rem;
+    font-size: 0.78rem;
   }
 }
 
