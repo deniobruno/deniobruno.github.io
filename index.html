@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- ========== META BÁSICO ========== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Dênio Mingote — Desenvolvedor Web e estudante de Sistemas de Informação na UFVJM. Projetos, habilidades e contato.">
+  <meta name="author" content="Dênio Mingote">
+  <meta name="theme-color" content="#0a0e14">
+
+  <title>Dênio Mingote | Desenvolvedor Web</title>
+
+  <!-- ========== OPEN GRAPH (compartilhamento em redes sociais) ========== -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dênio Mingote | Desenvolvedor Web">
+  <meta property="og:description" content="Portfólio profissional — projetos, habilidades e trajetória de um desenvolvedor web em formação.">
+  <meta property="og:url" content="https://deniomingote.github.io/">
+  <meta property="og:image" content="https://deniomingote.github.io/assets/img/og-image.jpg">
+
+  <!-- ========== TWITTER CARD ========== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dênio Mingote | Desenvolvedor Web">
+  <meta name="twitter:description" content="Portfólio profissional — projetos, habilidades e trajetória.">
+  <meta name="twitter:image" content="https://deniomingote.github.io/assets/img/og-image.jpg">
+
+  <!-- ========== FAVICON MINIMALISTA ========== -->
+  <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- ========== FONTES (Google Fonts) ========== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- ========== ESTILOS ========== -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <!-- Fundo Global de Malha Cibernética Interativa (Visível em todo o site) -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- ================================================================== -->
+  <!--  HEADER / NAVEGAÇÃO FIXA                                           -->
+  <!-- ================================================================== -->
+  <header id="header">
+    <nav aria-label="Navegação principal">
+      <a href="#hero" class="nav__logo" aria-label="Ir para o início">&lt;DM /&gt;</a>
+
+      <!-- Botão hambúrguer (mobile) -->
+      <button
+        class="nav__toggle"
+        aria-label="Abrir menu de navegação"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+      >
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <ul id="nav-menu" class="nav__menu" role="list">
+        <li><a href="#sobre" class="nav__link">Sobre</a></li>
+        <li><a href="#habilidades" class="nav__link">Habilidades</a></li>
+        <li><a href="#projetos" class="nav__link">Projetos</a></li>
+        <li><a href="#experiencia" class="nav__link">Experiência</a></li>
+        <li><a href="#contato" class="nav__link">Contato</a></li>
+      </ul>
+
+      <!-- Controles de Áudio e Tema com SVGs Minimalistas -->
+      <div class="nav__actions">
+        <button
+          class="nav__action-btn nav__audio-toggle"
+          aria-label="Ativar ou desativar efeitos sonoros"
+          title="Efeitos sonoros (mutado)"
+        >
+          <!-- SVG Som Mutado (padrão) -->
+          <svg class="audio-icon audio-icon--muted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+          <!-- SVG Som Ativo -->
+          <svg class="audio-icon audio-icon--on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: none;">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+        </button>
+
+        <button
+          class="nav__action-btn nav__theme-toggle"
+          aria-label="Alternar entre tema escuro e claro"
+          title="Alternar tema"
+        >
+          <!-- SVG Lua (tema escuro ativo) -->
+          <svg class="theme-icon theme-icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <!-- SVG Sol (tema claro ativo) -->
+          <svg class="theme-icon theme-icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================================================================ -->
+    <!--  SEÇÃO 1 — HERO                                                  -->
+    <!-- ================================================================ -->
+    <section id="hero" class="hero" aria-label="Apresentação">
+      <!-- Glows de fundo difusos (luz ambiente cyberpunk sem ruído) -->
+      <div class="hero__glow hero__glow--cyan" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--green" aria-hidden="true"></div>
+
+      <div class="hero__wrapper">
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="badge__dot" aria-hidden="true"></span>
+            <span>Disponível para novos projetos e estágio</span>
+          </div>
+
+          <p class="hero__terminal-prefix">
+            <span class="hero__prompt" aria-hidden="true">&gt;</span> const developer = "Dênio Mingote";
+          </p>
+
+          <h1 class="hero__name">
+            Dênio <span class="text--gradient">Mingote</span>
+          </h1>
+
+          <p class="hero__typing" aria-label="Desenvolvedor Web, Estudante de Sistemas de Informação, Entusiasta de Cibersegurança e Automação">
+            <span class="hero__typing-prefix">// </span>
+            <span class="hero__typing-text"></span>
+            <span class="hero__cursor" aria-hidden="true">|</span>
+          </p>
+
+          <p class="hero__description">
+            Construindo aplicações web modernas, interfaces intuitivas e soluções seguras. Estudante de Sistemas de Informação na UFVJM.
+          </p>
+
+          <div class="hero__cta">
+            <a href="#projetos" class="btn btn--primary">
+              <span>Ver projetos</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="./assets/curriculo.pdf" class="btn btn--secondary" target="_blank" rel="noopener noreferrer" download>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Baixar currículo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Lado Direito: Globo Holográfico 3D Interativo -->
+        <div class="hero__visual" aria-label="Globo cibernético interativo em 3D">
+          <div class="globe-card">
+            <div class="globe-card__header">
+              <span class="globe-card__dot"></span>
+              <span class="globe-card__title">network_globe.3d</span>
+              <span class="globe-card__badge">INTERATIVO</span>
+            </div>
+            
+            <div class="globe-container">
+              <canvas id="globe-canvas" width="460" height="460" aria-label="Globo de nós cibernéticos em 3D"></canvas>
+            </div>
+
+            <div class="globe-card__footer">
+              <span class="globe-card__hint">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"></path>
+                </svg>
+                Clique e arraste para girar em 3D
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!--  SEÇÃO 2 — SOBRE MIM                                            -->
+    <!-- ================================================================ -->
+    <section id="sobre" aria-labelledby="sobre-titulo">
+      <h2 id="sobre-titulo">
+        <span class="section__label" aria-hidden="true">// </span>sobre-mim
+      </h2>
+
+      <div class="sobre__conteudo">
+        <div class="sobre__texto">
+          <p>
+            Sou o Dênio Mingote, estudante de Sistemas de Informação na UFVJM
+            (2024–2028), em Minas Gerais. Sou apaixonado por tecnologia e tenho
+            interesse especial em cibersegurança, automação e pessoas, porque
+            acredito que bons sistemas só fazem sentido quando resolvem
+            problemas reais.
+          </p>
+          <p>
+            Atualmente atuo como analista de dados e auxiliar administrativo na
+            Diamante Prime, onde estagio desde agosto de 2025. Também trabalho
+            como desenvolvedor web freelancer, criando sites e soluções sob
+            medida para clientes. Na universidade, sou gerente de eventos da
+            NextStep (empresa júnior da UFVJM) e vice-presidente da Atlética
+            do curso. Essas experiências me ensinaram a liderar, organizar
+            equipes e entregar resultados.
+          </p>
+          <p>
+            No lado técnico, trabalho com Java (orientação a objetos), Python,
+            SQL, HTML/CSS/JavaScript e modelagem de processos com BPMN. Também
+            gosto de automatizar tarefas com scripts, como a geração de
+            planilhas e apresentações.
+          </p>
+          <p>
+            Busco uma oportunidade para aprender com profissionais experientes,
+            contribuir com dedicação e crescer na área de tecnologia.
+          </p>
+
+          <!-- Bloco Terminal Informativo Estilo Hacker -->
+          <div class="terminal-bio">
+            <div class="terminal-bio__header">
+              <span class="terminal-dot terminal-dot--red" aria-hidden="true"></span>
+              <span class="terminal-dot terminal-dot--yellow" aria-hidden="true"></span>
+              <span class="terminal-dot terminal-dot--green" aria-hidden="true"></span>
+              <span class="terminal-bio__title">denio@ufvjm:~$ cat profile.json</span>
+            </div>
+            <pre class="terminal-bio__code"><code>{
+  <span class="code-key">"desenvolvedor"</span>: <span class="code-string">"Dênio Mingote"</span>,
+  <span class="code-key">"formacao"</span>: <span class="code-string">"Sistemas de Informação — UFVJM (2024-2028)"</span>,
+  <span class="code-key">"local"</span>: <span class="code-string">"Diamantina, MG"</span>,
+  <span class="code-key">"atuacao"</span>: [<span class="code-string">"Desenvolvimento Web"</span>, <span class="code-string">"Análise de Dados"</span>],
+  <span class="code-key">"foco_estudos"</span>: [<span class="code-string">"Cybersecurity"</span>, <span class="code-string">"Redes TCP/IP"</span>, <span class="code-string">"Automação"</span>],
+  <span class="code-key">"disponibilidade"</span>: <span class="code-string">"Estágio &amp; Projetos Freelancer"</span>
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="sobre__contadores" role="list">
+          <div class="contador spotlight-card" role="listitem">
+            <div class="contador__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="contador__valor">
+                <span class="contador__numero" data-alvo="4">0</span>
+                <span class="contador__plus">+</span>
+              </div>
+              <span class="contador__rotulo">Anos de estudo na UFVJM</span>
+            </div>
+          </div>  
+
+          <div class="contador spotlight-card" role="listitem">
+            <div class="contador__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="contador__valor">
+                <span class="contador__numero" data-alvo="3">0</span>
+              </div>
+              <span class="contador__rotulo">Projetos de destaque</span>
+            </div>
+          </div>
+
+          <div class="contador spotlight-card" role="listitem">
+            <div class="contador__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="contador__valor">
+                <span class="contador__numero" data-alvo="2">0</span>
+              </div>
+              <span class="contador__rotulo">Sites no ar para clientes reais</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!--  SEÇÃO 3 — HABILIDADES                                          -->
+    <!--  Dados serão renderizados via JS a partir de um objeto.         -->
+    <!--  Categorias extraídas dos dois currículos + projetos reais.      -->
+    <!-- ================================================================ -->
+    <section id="habilidades" aria-labelledby="habilidades-titulo">
+      <div class="section__header">
+        <h2 id="habilidades-titulo">
+          <span class="section__label" aria-hidden="true">// </span>habilidades
+        </h2>
+        <p class="section__subtitle">Tecnologias, linguagens e ferramentas aplicadas na prática acadêmica e corporativa</p>
+      </div>
+
+      <!-- Filtros por Categoria de Habilidades -->
+      <div class="habilidades__filtros" role="group" aria-label="Filtrar habilidades por categoria">
+        <button class="hab-filtro__btn hab-filtro__btn--ativo" data-hab-filtro="todos">
+          <span>Todas</span>
+        </button>
+        <button class="hab-filtro__btn" data-hab-filtro="dev">
+          <span>Desenvolvimento</span>
+        </button>
+        <button class="hab-filtro__btn" data-hab-filtro="seguranca">
+          <span>Segurança &amp; Redes</span>
+        </button>
+        <button class="hab-filtro__btn" data-hab-filtro="dados">
+          <span>Dados &amp; Análise</span>
+        </button>
+        <button class="hab-filtro__btn" data-hab-filtro="processos">
+          <span>Processos &amp; Metodologias</span>
+        </button>
+      </div>
+
+      <!-- Grid de Cards de Habilidades Renderizado Dinamicamente -->
+      <div class="habilidades__grid" id="habilidades-container" role="list" aria-live="polite">
+        <!-- Renderizado dinamicamente via js/reveal.js -->
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!--  SEÇÃO 4 — PROJETOS                                             -->
+    <!-- ================================================================ -->
+    <section id="projetos" aria-labelledby="projetos-titulo">
+      <div class="section__header">
+        <h2 id="projetos-titulo">
+          <span class="section__label" aria-hidden="true">// </span>projetos
+        </h2>
+        <p class="section__subtitle">Soluções reais desenvolvidas para clientes, aplicações web e projetos acadêmicos</p>
+      </div>
+
+      <!-- Barra de Filtros e Busca Instantânea -->
+      <div class="projetos__filtros" role="toolbar" aria-label="Filtrar projetos">
+        <div class="filtros__categorias" role="group" aria-label="Filtrar por categoria">
+          <button class="filtro__btn filtro__btn--ativo" data-filtro="todos">Todos</button>
+          <button class="filtro__btn" data-filtro="web">Web</button>
+          <button class="filtro__btn" data-filtro="dados">Dados</button>
+          <button class="filtro__btn" data-filtro="automacao">Automação</button>
+        </div>
+
+        <div class="filtros__busca">
+          <label for="busca-projetos" class="sr-only">Buscar projetos</label>
+          <div class="busca__input-wrapper">
+            <svg class="busca__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="search"
+              id="busca-projetos"
+              class="filtros__input"
+              placeholder="Buscar por nome, tecnologia ou palavra-chave..."
+              autocomplete="off"
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid de Cards dos Projetos -->
+      <div class="projetos__grid" id="projetos-container" role="list" aria-live="polite">
+        <!-- Injetado dinamicamente via js/projects.js -->
+      </div>
+
+      <!-- Modal de Detalhes do Projeto -->
+      <div
+        id="modal-projeto"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-titulo"
+        aria-hidden="true"
+      >
+        <div class="modal__overlay" tabindex="-1"></div>
+        <div class="modal__conteudo spotlight-card" tabindex="0">
+          <div class="modal__header">
+            <div class="modal__terminal-dots" aria-hidden="true">
+              <span class="terminal-dot terminal-dot--red"></span>
+              <span class="terminal-dot terminal-dot--yellow"></span>
+              <span class="terminal-dot terminal-dot--green"></span>
+            </div>
+            <span class="modal__header-title">project_details.md</span>
+            <button class="modal__fechar" aria-label="Fechar detalhes do projeto">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <div class="modal__body">
+            <h3 id="modal-titulo" class="modal__titulo"></h3>
+            <div class="modal__meta">
+              <span class="modal__ano"></span>
+              <div class="modal__categorias"></div>
+            </div>
+            <div class="modal__galeria"></div>
+            <div class="modal__descricao"></div>
+            <div class="modal__tecnologias"></div>
+            <div class="modal__links"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!--  SEÇÃO 5 — EXPERIÊNCIA E CONQUISTAS                             -->
+    <!--  Timeline com dados extraídos dos currículos.                   -->
+    <!-- ================================================================ -->
+    <section id="experiencia" aria-labelledby="experiencia-titulo">
+      <div class="section__header">
+        <h2 id="experiencia-titulo">
+          <span class="section__label" aria-hidden="true">// </span>experiência
+        </h2>
+        <p class="section__subtitle">Trajetória profissional, liderança universitária, formação e conquistas</p>
+      </div>
+
+      <div class="timeline">
+        <!-- Item 1: Diamante Prime -->
+        <div class="timeline__item">
+          <div class="timeline__marcador" aria-hidden="true"></div>
+          <div class="timeline__conteudo spotlight-card">
+            <div class="timeline__top">
+              <span class="timeline__data">ago/2025 – presente</span>
+              <span class="timeline__tag">Estágio Corporativo</span>
+            </div>
+            <h3 class="timeline__titulo">Analista de Dados e Auxiliar Administrativo</h3>
+            <p class="timeline__local">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              Diamante Prime — Assessoria de Investimentos
+            </p>
+            <p class="timeline__descricao">
+              Acompanho fechamento de índices de mercado e elaboro análises
+              comparativas de produtos financeiros (fundos, consórcios),
+              traduzindo resultados em relatórios e apresentações para clientes.
+              Gerencio demandas e fluxos de trabalho utilizando metodologia Kanban.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 2: NextStep -->
+        <div class="timeline__item">
+          <div class="timeline__marcador" aria-hidden="true"></div>
+          <div class="timeline__conteudo spotlight-card">
+            <div class="timeline__top">
+              <span class="timeline__data">abr/2025 – presente</span>
+              <span class="timeline__tag">Empresa Júnior</span>
+            </div>
+            <h3 class="timeline__titulo">Gerente de Eventos</h3>
+            <p class="timeline__local">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              NextStep — Empresa Júnior da UFVJM
+            </p>
+            <p class="timeline__descricao">
+              Lidero projetos corporativos, com responsabilidade por
+              planejamento, organização e acompanhamento de entregas. Avalio
+              desempenho e eficiência de equipe, atuando na gestão de pessoas
+              e processos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 3: Atlética -->
+        <div class="timeline__item">
+          <div class="timeline__marcador" aria-hidden="true"></div>
+          <div class="timeline__conteudo spotlight-card">
+            <div class="timeline__top">
+              <span class="timeline__data">2025</span>
+              <span class="timeline__tag">Liderança &amp; Gestão</span>
+            </div>
+            <h3 class="timeline__titulo">Vice-Presidente da Atlética</h3>
+            <p class="timeline__local">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              Atlética do curso — UFVJM
+            </p>
+            <p class="timeline__descricao">
+              Vice-presidente da Atlética universitária, atuando como braço
+              direito do presidente na gestão da entidade. Participo da
+              articulação de parcerias com a universidade e ligas esportivas,
+              apoio o alinhamento das diretorias internas (esportes, eventos,
+              financeiro, marketing) e contribuo na captação de patrocínios,
+              planejamento do calendário anual e resolução de imprevistos
+              durante jogos e eventos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 4: Hackathon UaiDev -->
+        <div class="timeline__item">
+          <div class="timeline__marcador" aria-hidden="true"></div>
+          <div class="timeline__conteudo spotlight-card">
+            <div class="timeline__top">
+              <span class="timeline__data">2025</span>
+              <span class="timeline__tag timeline__tag--gold">🏆 2º Lugar</span>
+            </div>
+            <h3 class="timeline__titulo">Hackathon UaiDev — Maratona de Programação</h3>
+            <p class="timeline__local">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+              UaiDev Minas Gerais
+            </p>
+            <p class="timeline__descricao">
+              Maratona de programação reunindo estudantes e desenvolvedores de Minas Gerais.
+              Conquistamos o 2º lugar no desafio com a implementação de um código com comandos
+              para placa Arduino para controlar um carrinho de controle remoto, combinando
+              programação, integração de hardware e trabalho em equipe sob pressão de tempo.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 5: UFVJM -->
+        <div class="timeline__item">
+          <div class="timeline__marcador" aria-hidden="true"></div>
+          <div class="timeline__conteudo spotlight-card">
+            <div class="timeline__top">
+              <span class="timeline__data">2024 – 2028</span>
+              <span class="timeline__tag">Graduação</span>
+            </div>
+            <h3 class="timeline__titulo">Bacharelado em Sistemas de Informação</h3>
+            <p class="timeline__local">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              Universidade Federal dos Vales do Jequitinhonha e Mucuri (UFVJM)
+            </p>
+            <p class="timeline__descricao">
+              Curso em andamento com ênfase em desenvolvimento de software,
+              banco de dados, redes e segurança da informação.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 6: Honra ao Mérito -->
+        <div class="timeline__item">
+          <div class="timeline__marcador" aria-hidden="true"></div>
+          <div class="timeline__conteudo spotlight-card">
+            <div class="timeline__top">
+              <span class="timeline__data">2021 – 2023</span>
+              <span class="timeline__tag timeline__tag--gold">Honra ao Mérito</span>
+            </div>
+            <h3 class="timeline__titulo">Ensino Médio — Desempenho Acadêmico</h3>
+            <p class="timeline__local">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+              Colégio Tiradentes da Polícia Militar (CTPM)
+            </p>
+            <p class="timeline__descricao">
+              Ensino médio concluído com reconhecimento oficial por excelência e alto desempenho acadêmico (Honra ao Mérito).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!--  SEÇÃO 6 — CONTATO                                              -->
+    <!-- ================================================================ -->
+    <section id="contato" aria-labelledby="contato-titulo">
+      <div class="section__header">
+        <h2 id="contato-titulo">
+          <span class="section__label" aria-hidden="true">// </span>contato
+        </h2>
+        <p class="section__subtitle">Tem uma oportunidade de estágio, projeto ou ideia de colaboração? Vamos conversar!</p>
+      </div>
+
+      <div class="contato__conteudo">
+        <!-- Coluna Esquerda: Canais Rápidos com Direcionamento Direto -->
+        <div class="contato__info">
+          <h3 class="contato__subtitulo">Canais Diretos</h3>
+          <p class="contato__texto-intro">
+            Fique à vontade para me mandar uma mensagem direta no WhatsApp, enviar um e-mail pelo Gmail ou se conectar comigo nas redes profissionais:
+          </p>
+
+          <ul class="contato__cards" role="list">
+            <!-- Card WhatsApp -->
+            <li class="contato__card spotlight-card">
+              <div class="contato__card-icon contato__card-icon--wpp" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </div>
+              <div class="contato__card-body">
+                <span class="contato__card-label">WhatsApp</span>
+                <span class="contato__card-valor">(31) 97342-6635</span>
+              </div>
+              <a
+                href="https://wa.me/5531973426635?text=Ol%C3%A1%2C%20D%C3%AAnio!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contato__card-action btn-wpp"
+                aria-label="Abrir conversa no WhatsApp com Dênio"
+              >
+                <span>Chamar</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </li>
+
+            <!-- Card Gmail / E-mail -->
+            <li class="contato__card spotlight-card">
+              <div class="contato__card-icon contato__card-icon--mail" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="contato__card-body">
+                <span class="contato__card-label">E-mail</span>
+                <span class="contato__card-valor">deniobruno12@gmail.com</span>
+              </div>
+              <div class="contato__mail-actions">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=deniobruno12@gmail.com&su=Contato%20via%20Portf%C3%B3lio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contato__card-action"
+                  title="Abrir diretamente no Gmail"
+                  aria-label="Abrir caixa de envio no Gmail"
+                >
+                  <span>Gmail</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+                <button
+                  class="contato__copiar-btn"
+                  data-email="deniobruno12@gmail.com"
+                  title="Copiar endereço de e-mail"
+                  aria-label="Copiar endereço de e-mail"
+                >
+                  <span class="copiar__texto">Copiar</span>
+                </button>
+              </div>
+            </li>
+
+            <!-- Card LinkedIn -->
+            <li class="contato__card spotlight-card">
+              <div class="contato__card-icon contato__card-icon--linkedin" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </div>
+              <div class="contato__card-body">
+                <span class="contato__card-label">LinkedIn</span>
+                <span class="contato__card-valor">in/denio-mingote</span>
+              </div>
+              <a
+                href="https://www.linkedin.com/in/denio-mingote"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contato__card-action"
+                aria-label="Conectar com Dênio no LinkedIn (abre em nova aba)"
+              >
+                <span>Conectar</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </li>
+
+            <!-- Card GitHub -->
+            <li class="contato__card spotlight-card">
+              <div class="contato__card-icon contato__card-icon--github" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </div>
+              <div class="contato__card-body">
+                <span class="contato__card-label">GitHub</span>
+                <span class="contato__card-valor">github.com/deniobruno</span>
+              </div>
+              <a
+                href="https://github.com/deniobruno"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contato__card-action"
+                aria-label="Acessar perfil de Dênio no GitHub (abre em nova aba)"
+              >
+                <span>Perfil</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Coluna Direita: Formulário Interativo com Ação Direta -->
+        <div class="contato__form-wrapper spotlight-card">
+          <div class="form-wrapper__header">
+            <span class="terminal-dot terminal-dot--red" aria-hidden="true"></span>
+            <span class="terminal-dot terminal-dot--yellow" aria-hidden="true"></span>
+            <span class="terminal-dot terminal-dot--green" aria-hidden="true"></span>
+            <span class="form-wrapper__title">send_message.sh</span>
+          </div>
+
+          <form id="form-contato" class="contato__form" aria-label="Formulário de mensagem rápida">
+            <div class="form__grupo">
+              <label for="form-nome" class="form__label">Seu Nome</label>
+              <input
+                type="text"
+                id="form-nome"
+                name="nome"
+                class="form__input"
+                placeholder="Ex.: Lucas Mendes"
+                required
+                autocomplete="name"
+              >
+            </div>
+
+            <div class="form__grupo">
+              <label for="form-email" class="form__label">Seu E-mail</label>
+              <input
+                type="email"
+                id="form-email"
+                name="email"
+                class="form__input"
+                placeholder="Ex.: lucas@empresa.com"
+                required
+                autocomplete="email"
+              >
+            </div>
+
+            <div class="form__grupo">
+              <label for="form-mensagem" class="form__label">Mensagem ou Proposta</label>
+              <textarea
+                id="form-mensagem"
+                name="mensagem"
+                class="form__textarea"
+                rows="4"
+                placeholder="Olá Dênio, vi seu portfólio e gostaria de conversar sobre uma oportunidade..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form__acoes">
+              <button
+                type="button"
+                id="btn-enviar-wpp"
+                class="btn btn--primary btn-acao-wpp"
+                aria-label="Enviar mensagem diretamente pelo WhatsApp"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+                <span>Enviar via WhatsApp</span>
+              </button>
+
+              <button
+                type="button"
+                id="btn-enviar-email"
+                class="btn btn--secondary"
+                aria-label="Enviar mensagem diretamente pelo Gmail / E-mail"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>Enviar via E-mail</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================================================================== -->
+  <!--  FOOTER / RODAPÉ                                                     -->
+  <!-- ==================================================================== -->
+  <footer id="footer">
+    <p>
+      &copy; 2026 Dênio Mingote. Feito com HTML, CSS e JavaScript puro.
+    </p>
+    <p>
+      <a href="https://github.com/deniobruno/deniomingote.github.io" target="_blank" rel="noopener noreferrer">
+        Ver código-fonte no GitHub
+      </a>
+    </p>
+    <a href="#hero" class="footer__topo" aria-label="Voltar ao topo da página">
+      ↑ Topo
+    </a>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="./js/audio.js" defer></script>
+  <script src="./js/globe.js" defer></script>
+  <script src="./js/main.js" defer></script>
+  <script src="./js/typing.js" defer></script>
+  <script src="./js/particles.js" defer></script>
+  <script src="./js/projects.js" defer></script>
+  <script src="./js/reveal.js" defer></script>
+</body>
+</html>

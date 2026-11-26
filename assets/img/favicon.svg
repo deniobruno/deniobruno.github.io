@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="cyber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00e5ff" />
+      <stop offset="100%" stop-color="#00ff9c" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Fundo escuro com cantos arredondados -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#080c14" stroke="#00e5ff" stroke-width="2" stroke-opacity="0.4" />
+
+  <!-- Logo <DM /> estilizado em código -->
+  <text 
+    x="32" 
+    y="40" 
+    font-family="'JetBrains Mono', 'Fira Code', monospace" 
+    font-size="22" 
+    font-weight="800" 
+    letter-spacing="-1" 
+    text-anchor="middle" 
+    fill="url(#cyber-grad)"
+    filter="url(#glow)">
+    &lt;DM/&gt;
+  </text>
+</svg>

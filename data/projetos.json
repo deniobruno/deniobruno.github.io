@@ -1,0 +1,44 @@
+[
+  {
+    "id": "site-dra-patricia-diniz",
+    "titulo": "Site Institucional — Dra. Patrícia Diniz",
+    "descricaoCurta": "Site institucional e de captação de pacientes para ginecologista com atendimento em BH e Diamantina.",
+    "descricaoLonga": "Site de página única desenvolvido para a Dra. Patrícia Diniz, ginecologista com pós-graduação em Ginecologia Endócrina. O objetivo é apresentar a médica, suas áreas de atuação e facilitar o agendamento de consultas via WhatsApp. Inclui navegação por âncoras, modal de agendamento com seletor de unidade, FAQ expansível, mapas incorporados, integração com redes sociais e metadados de SEO. Todo o conteúdo respeita as normas de publicidade médica do CFM e a LGPD. Desafio: construir um layout responsivo e acolhedor que convertesse visitantes em pacientes, sem formulários longos. Aprendizado: SEO on-page, integração com WhatsApp via link, acessibilidade e trabalho direto com cliente real.",
+    "categorias": ["web"],
+    "tecnologias": ["HTML", "CSS", "JavaScript"],
+    "imagem": "",
+    "galeria": [],
+    "github": "",
+    "demo": "https://www.drapatriciadiniz.com.br",
+    "destaque": true,
+    "ano": 2025
+  },
+  {
+    "id": "site-diamante-prime",
+    "titulo": "Site Institucional — Diamante Prime Investimentos",
+    "descricaoCurta": "Landing page de alta conversão para assessoria de investimentos credenciada à XP.",
+    "descricaoLonga": "Site de página única da Diamante Prime Investimentos, assessoria financeira voltada a investidores com patrimônio relevante. Transmite solidez e exclusividade, explica serviços e metodologia de trabalho e converte visitantes em consultas agendadas por formulário ou WhatsApp. Inclui contadores animados, 6 cards de serviços, processo de trabalho em 4 etapas, perfis da equipe com certificações, FAQ expansível, formulário de qualificação de leads com seleção de perfil e faixa de patrimônio, e rodapé com aviso regulatório completo. Desafio: atender um público exigente em um setor altamente regulado, garantindo conformidade com a LGPD e regras do mercado financeiro. Aprendizado: estruturação de landing page de alta conversão, formulários com validação, SEO on-page e trabalho em segmento regulado.",
+    "categorias": ["web"],
+    "tecnologias": ["HTML", "CSS", "JavaScript"],
+    "imagem": "",
+    "galeria": [],
+    "github": "",
+    "demo": "https://www.diamanteprimeinvestimentos.com.br",
+    "destaque": true,
+    "ano": 2025
+  },
+  {
+    "id": "sistema-hamburgueria",
+    "titulo": "Sistema de Gestão — Hamburgueria Diamantina",
+    "descricaoCurta": "Sistema completo em Java para gestão operacional, comercial, financeira e logística de uma hamburgueria.",
+    "descricaoLonga": "Sistema CLI desenvolvido em Java (JDK 21) com POO e padrões de projeto (Singleton e Factory Method). Gerencia cardápio, fila de pedidos com 3 estações de preparo, despacho de entregas por região, controle de estoque com baixa automática de ingredientes, gestão de usuários (admin/colaborador) e relatórios gerenciais. Persistência em JSON com Google Gson, incluindo recalibração de IDs estáticos pós-desserialização. Estruturas de dados: Queue/LinkedList (FIFO), arrays estáticos, Comparator, Stream API e java.time. Documentação completa via Javadoc. Desafio: preservar polimorfismo na desserialização com Gson e sincronizar contadores estáticos entre sessões. Aprendizado: arquitetura em camadas, padrões de projeto, persistência de dados, testes automatizados e trabalho colaborativo.",
+    "categorias": ["dados", "automacao"],
+    "tecnologias": ["Java", "POO", "Gson", "JSON", "Javadoc"],
+    "imagem": "",
+    "galeria": [],
+    "github": "https://github.com/deniobruno/Hamburgueria-Diamantina",
+    "demo": "",
+    "destaque": true,
+    "ano": 2025
+  }
+]
